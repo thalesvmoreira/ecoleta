@@ -26,7 +26,6 @@ interface IBGECityResponse{
 }
 
 const CreatePoint = () => {
-
   const [items, setItems] = useState<Item[]>([]);
   const [ufs, setUfs] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
@@ -93,7 +92,7 @@ const CreatePoint = () => {
   function handleSelectCity(event: ChangeEvent<HTMLSelectElement>){
     const city = event.target.value;
 
-    setSelectedUf(city);
+    setSelectedCity(city);
   }
 
   function handleMapClick(event: LeafletMouseEvent){
@@ -110,7 +109,7 @@ const CreatePoint = () => {
   }
 
   function handleSelectItem(id: number){
-    const alreadySelected = selectedItems.findIndex(item => item = id);
+    const alreadySelected = selectedItems.findIndex(item => item === id);
 
     if(alreadySelected >= 0){
       const filteredItems = selectedItems.filter(item => item !== id);
